@@ -1,16 +1,10 @@
 import base64
-from Crypto import Random
 from Crypto.PublicKey import RSA
 from Crypto.Cipher import PKCS1_OAEP
 
 
-def load_key(key_file, passphrase):
+def load_key(key_file, passphrase=None):
     return RSA.importKey(key_file, passphrase)
-
-
-def gen_key():
-    random = Random.new().read
-    return RSA.generate(2048, random)
 
 
 def encrypt(public_key, message):
